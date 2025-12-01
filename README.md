@@ -1,6 +1,9 @@
-#  E-commerce Django (Grupo 1)
+#  E-commerce Django 
 
 Sistema de Loja Virtual desenvolvido como projeto acadêmico utilizando Django.
+## 🌐 Acesse o Projeto Online
+Clique aqui para ver o site funcionando:
+👉 **[http://catarina.pythonanywhere.com](http://catarina.pythonanywhere.com)**
 
 ## Integrantes
 
@@ -26,8 +29,3 @@ Este projeto simula um ambiente de e-commerce com as seguintes funcionalidades:
 - Carrinho de compras.
 - Páginas institucionais.
 
-##  Como rodar o projeto localmente
-
-1. **Clone o repositório:**
-   ```bash
-   git clone [https://github.com/SEU-USUARIO/NOME-DO-REPO.git](https://github.com/SEU-USUARIO/NOME-DO-REPO.git)
