@@ -1,0 +1,224 @@
+body {
+    background-color: #ffd4e3;
+}
+.my-header {
+    background-color: #e3a0af;
+    
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #f0e2e5;
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.card-img-top {
+    object-fit: cover;
+    max-height: 250px;
+}
+
+.titulo-produtos {
+    color: #bd7298;      
+    font-size: 2.0rem;    
+    font-weight: bold;    
+    text-transform: uppercase; 
+}
+
+.nav-link i {
+    margin-right: 6px; 
+    color:#ffffff;
+}
+.nav-link {
+    color: #ffffff;  
+}
+.navbar-brand:hover {
+    color: #ff006f;
+}
+.nav-link:hover {
+    color: #ff006f;
+}
+
+.bt-rosa {
+    background-color: #bd7298; 
+    border-color: #e1a1bd;
+    color: white;
+}
+.bt-rosa:hover {
+    background-color: #7c4360 ; 
+    border-color: #bcb4b7;
+
+}
+
+.link-rosa {
+    color: #ff4f9a;
+    text-decoration: none;
+}
+
+.link-rosa:hover {
+    color: #e04286;
+    text-decoration: underline;
+}
+.tex-car {
+    color: #7c4360
+
+}
+.tex-car th{
+    color: #7c4360
+
+}
+.img-fluid {
+
+    height: 90%;       
+    object-fit: cover;  
+    border-radius: 10px;
+}
+.pagination .page-link {
+    color: #7b0741; /* cor das letras */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #911d57; /* fundo do botão ativo */
+    border-color: #ff69b4;
+    color: white; /* cor da letra do botão ativo */
+}
+
+.pagination .page-link:hover {
+    background-color: #ffc0cb; /* rosa claro ao passar o mouse */
+    color: white;
+}
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background-color: #fff0f5; /* rosa clarinho */
+    text-align: center;
+}
+
+.auth-container h2 {
+    color: #d63384; /* rosa escuro */
+    margin-bottom: 20px;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d63384;
+    border-radius: 5px;
+}
+
+.auth-container .btn-rosa {
+    background-color: #d63384;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-container .btn-rosa:hover {
+    background-color: #c12f76;
+}
+
+.auth-container a {
+    color: #d63384;
+    text-decoration: none;
+}
+
+.auth-container a:hover {
+    text-decoration: underline;
+}
+/* ===== Seção Contato ===== */
+#contato {
+    background-color: #fff0f5; /* Rosa clarinho */
+    padding: 40px 0;
+}
+
+#contato h2 {
+    color: #d63384; /* Rosa escuro */
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#contato p {
+    color: #7c4360; /* Rosa médio */
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+#contato .row .col-md-4 {
+    margin-bottom: 30px;
+}
+
+#contato i {
+    font-size: 2.5rem;
+    color: #bd7298;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#contato i:hover {
+    color: #ff4f9a; /* Rosa vivo no hover */
+    transform: scale(1.2);
+}
+
+#contato h5 {
+    margin-top: 15px;
+    color: #7c4360;
+    font-weight: 600;
+}
+
+#contato p a {
+    color: #d63384;
+    text-decoration: none;
+}
+
+#contato p a:hover {
+    text-decoration: underline;
+    color: #ff4f9a;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #contato h2 {
+        font-size: 2rem;
+    }
+
+    #contato i {
+        font-size: 2rem;
+    }
+}
+#sobre p {
+
+    color: #583044; /* Rosa médio */
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+#sobre h2 {
+    color: #c90564; /* Rosa escuro */
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#politica p {
+
+    color: #93416b; /* Rosa médio */
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+#politica h2 {
+    color: #c90564; /* Rosa escuro */
+    font-size: 2.0rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#uso-info li {
+    color: #583044; /* cor rosa escura */
+}

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Produtos - Meu E-commerce{% endblock %}
+{% block content %}
+<h1 class="titulo-produtos mb-4 text-center">Produtos Disponíveis</h1>
+
+<!-- Ordenação -->
+<div class="d-flex justify-content-end mb-3">
+    <form method="get" class="d-flex">
+        <label class="me-2" for="order">Ordenar por:</label>
+        <select name="order" id="order" class="form-select me-2 bt-rosa" onchange="this.form.submit()">
+            <option value="">Padrão</option>
+            <option value="preco_asc" {% if order == 'preco_asc' %}selected{% endif %}>Preço: Menor para Maior</option>
+            <option value="preco_desc" {% if order == 'preco_desc' %}selected{% endif %}>Preço: Maior para Menor</option>
+            <option value="novidade" {% if order == 'novidade' %}selected{% endif %}>Novidade</option>
+        </select>
+        <noscript><button type="submit" class="btn bt-rosa">Ordenar</button></noscript>
+    </form>
+</div>
+
+<!-- Lista de produtos -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for product in page_obj %}
+   <div class="col">
+  <div class="card h-100 shadow-sm">
+    {% if product.image_url %}
+      <img src="{{ product.image_url }}" class="card-img-top" alt="{{ product.name }}">
+    {% else %}
+      <img src="https://via.placeholder.com/600x400?text=Sem+Imagem" class="card-img-top" alt="{{ product.name }}">
+    {% endif %}
+    <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text text-truncate">{{ product.description }}</p>
+        <p>Categoria: {{ product.category.name }}</p>
+        <p>Estoque: {{ product.stock }}</p>
+        {% if product.discount %}
+            <p>Preço: <del>R${{ product.price }}</del> <strong>R${{ product.price_after_discount|floatformat:2 }}</strong></p>
+        {% else %}
+            <p>Preço: R${{ product.price }}</p>
+        {% endif %}
+        <a href="{% url 'store:product_detail' product.slug %}" class="mt-auto btn btn-primary bt-rosa">
+            Ver detalhes
+        </a>
+    </div>
+  </div>
+</div>
+
+  {% empty %}
+    <p>Não há produtos cadastrados.</p>
+  {% endfor %}
+</div>
+
+<!-- Paginação -->
+<nav aria-label="Navegação de páginas" class="mt-4">
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if order %}&order={{ order }}{% endif %}">Anterior</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <li class="page-item">
+          <a class="page-link" href="?page={{ num }}{% if order %}&order={{ order }}{% endif %}">{{ num }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if order %}&order={{ order }}{% endif %}">Próxima</a>
+      </li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">Próxima</span></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endblock %}

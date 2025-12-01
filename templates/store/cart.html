@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Carrinho de Compras - Meu E-commerce{% endblock %}
+{% block content %}
+<h1 class="mb-4 tex-car">Carrinho de Compras</h1>
+{% if cart_items %}
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead class="tex-car">
+        <tr>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Preço unitário</th>
+          <th>Subtotal</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+       <tr>
+        <td>{{ item.product.name }}</td>
+        <td>
+            <form action="{% url 'store:update_cart' item.product.id %}" method="POST" class="d-flex">
+            {% csrf_token %}
+            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control form-control-sm" style="width: 60px;">
+            <button class="btn bt-rosa btn-sm ms-2" type="submit">Atualizar</button>
+            </form>
+        </td>
+        <td>R$ {{ item.product.price }}</td>
+        <td>R$ {{ item.subtotal }}</td>
+     <td>
+      <a href="{% url 'store:remove_from_cart' item.product.id %}" 
+         class="btn btn-danger btn-sm bt-rosa">
+         Remover
+      </a>
+  </td>
+</tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="3" class="text-end">Total:</th>
+          <th>R$ {{ total }}</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+
+
+  <div class="mt-3">
+    <a href="{% url 'store:product_list' %}" class="btn btn-secondary bt-rosa">Continuar comprando</a>
+    <button class="btn btn-success" disabled>Finalizar compra (em desenvolvimento)</button>
+  </div>
+
+
+{% else %}
+
+
+  <p>Seu carrinho está vazio.</p>
+  <a href="{% url 'store:product_list' %}" class="btn bt-rosa mt-3">Ver produtos</a>
+{% endif %}
+{% endblock %}
